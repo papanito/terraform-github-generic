@@ -1,4 +1,4 @@
-ariable "repositories" {
+variable "repositories" {
   description = <<EOT
 A map of repository configurations where the key represents the repository name.
 
@@ -7,6 +7,7 @@ General Options:
 - archived: (Optional) Set to true to archive the repository. Defaults to false.
 - default_branch: (Optional) The name of the default branch. Defaults to 'main'.
 - is_template: (Optional) Whether this is a template repository. Defaults to false.
+- homepage_url: (Optional) URL of a page describing the project.
 - topics: (Required) The list of topics to set on the repository.
 - vulnerability_alerts: (Optional) Whether to enable security alerts for vulnerable dependencies. Defaults to true.
 
@@ -30,9 +31,10 @@ Merge Settings (merge_settings object):
 - squash_merge_commit_title: (Optional) Title for squash: 'PR_TITLE' or 'COMMIT_OR_PR_TITLE'.
 EOT
   type = map(object({
-    description = string
-    archived    = optional(bool, false)
-    is_template = optional(bool, false)
+    description  = string
+    archived     = optional(bool, false)
+    is_template  = optional(bool, false)
+    homepage_url = optional(string, null)
     access = optional(object({
       visibility      = optional(string)
       private         = optional(bool, false)
