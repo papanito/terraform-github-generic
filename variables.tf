@@ -9,7 +9,6 @@ General Options:
 - is_template: (Optional) Whether this is a template repository. Defaults to false.
 - topics: (Required) The list of topics to set on the repository.
 - vulnerability_alerts: (Optional) Whether to enable security alerts for vulnerable dependencies. Defaults to true.
-- mirror: (Optional) Custom string to configure repository mirroring/sync.
 
 Access Settings (access object):
 - visibility: (Optional) Can be 'public', 'private', or 'internal'. Overrides 'private'.
@@ -54,10 +53,8 @@ EOT
       squash_merge_commit_title   = optional(string, "COMMIT_OR_PR_TITLE")
     }))
     default_branch       = optional(string, "main")
-    import_url           = optional(string)
     topics               = list(string)
     vulnerability_alerts = optional(bool, true)
-    mirror               = optional(string)
     }
   ))
 }
