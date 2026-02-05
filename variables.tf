@@ -7,6 +7,7 @@ General Options:
 - archived: (Optional) Set to true to archive the repository. Defaults to false.
 - default_branch: (Optional) The name of the default branch. Defaults to 'main'.
 - is_template: (Optional) Whether this is a template repository. Defaults to false.
+- allow_forks: (Optional) Only is relvena for organizations, shall be not set for personal repos
 - homepage_url: (Optional) URL of a page describing the project.
 - topics: (Required) The list of topics to set on the repository.
 - vulnerability_alerts: (Optional) Whether to enable security alerts for vulnerable dependencies. Defaults to true.
@@ -35,6 +36,7 @@ EOT
     archived     = optional(bool, false)
     is_template  = optional(bool, false)
     homepage_url = optional(string, null)
+    allow_forks  = optional(bool, null)
     access = optional(object({
       visibility      = optional(string)
       private         = optional(bool, false)
